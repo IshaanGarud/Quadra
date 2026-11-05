@@ -71,16 +71,32 @@ cd quadra
 
 ### 2. Add an input image
 
-Place your image inside the `images/` directory.
+Place your source image inside the `images/` directory.
 
 ### 3. Configure the project
 
-Modify the configuration constants in `src/main.rs`:
+All the main configuration parameters are located at the **top of `src/main.rs`**.
 
-- `SIZE` — Output image dimensions.
-- `THRESHOLD` — MSE threshold for subdivision.
-- `SOURCE_IMAGE` — Path to the input image.
-- `OUTPUT_IMAGE` — Path where the generated image will be saved.
+The default configuration is:
+
+```rust
+const SIZE: (u32, u32) = (512, 512);
+const THRESHOLD: f32 = 1000.0;
+
+const SOURCE_IMAGE: &str = "<image path>";
+const OUTPUT_IMAGE: &str = "<image path>";
+```
+
+You can modify these parameters according to your requirements:
+
+| Parameter | Description |
+|---|---|
+| `SIZE` | Width and height to which the source image is resized. |
+| `THRESHOLD` | MSE threshold used to determine when a region should be subdivided. |
+| `SOURCE_IMAGE` | Path to the input image. |
+| `OUTPUT_IMAGE` | Path where the generated image will be saved. |
+
+**Tip:** Experiment with different threshold values to observe how they affect image detail and simplification.
 
 ### 4. Run the project
 
