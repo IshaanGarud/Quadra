@@ -2,6 +2,7 @@ use image::{ImageReader, DynamicImage};
 use image::{ GenericImage, ImageBuffer, Pixel, Rgb, imageops::FilterType::Lanczos3};
 
 const SIZE: (u32, u32) = (512, 512);
+const MINIMUM_CHUNK_SIZE: (u32, u32) = (16, 16);
 const THRESHOLD: f32 = 1000.0;
 
 const SOURCE_IMAGE: &str = "images/mona_lisa.png";
@@ -80,7 +81,7 @@ impl Chunk {
         self.calculate_average_source(source_buffer);   // sets self.avg_color
         self.calculate_mse(source_buffer);              // sets self.mse
 
-        if self.mse > THRESHOLD {    // && (self.width > 8 && self.height > 8)
+        if self.mse > THRESHOLD  && (self.width > MINIMUM_CHUNK_SIZE.0 && self.height > MINIMUM_CHUNK_SIZE.1){    
             let quadrant_size: (u32, u32) = (self.width/2 , self.height/2);
             let quadrant_offset: (u32, u32) = self.position; 
 

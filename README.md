@@ -15,6 +15,37 @@ The goal is to explore how **Quadtree Decomposition** can be used for image appr
 - **Minimum Chunk Size** — Prevents excessive subdivision.
 - **Image Approximation** — Reconstructs the image using the average colors of leaf nodes.
 
+## 🖼️ Examples
+
+### Original vs Output
+
+<p align="center">
+  <strong>Original Image</strong>
+  &nbsp;&nbsp;&nbsp;&nbsp; ➜ &nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>Output Image<br/>Threshold = 500</strong>
+</p>
+
+<p align="center">
+  <img src="images/mona_lisa.png" width="44%" alt="Original Image"/>
+  &nbsp;&nbsp;&nbsp; ➜ &nbsp;&nbsp;&nbsp;
+  <img src="images/mona_lisa_500.png" width="44%" alt="Quadra Output"/>
+</p>
+
+### More Outputs with Different Thresholds
+
+<p align="center">
+  <img src="images/mona_lisa_1000.png" width="25%" alt="Quadra output 1"/>
+  <img src="images/mona_lisa_200.png" width="25%" alt="Quadra output 2"/>
+  <img src="images/mona_lisa_2000.png" width="25%" alt="Quadra output 3"/>
+</p>
+
+<table align="center">
+  <tr>
+    <td align="center"><sub>Threshold = 1000</sub></td>
+    <td align="center"><sub>Threshold = 200</sub></td>
+    <td align="center"><sub>Threshold = 2000</sub></td>
+  </tr>
+</table>
 ## ⚙️ How It Works
 
 Quadra follows a recursive image decomposition process:
